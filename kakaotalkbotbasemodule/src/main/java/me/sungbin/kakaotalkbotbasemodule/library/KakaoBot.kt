@@ -168,6 +168,21 @@ class KakaoBot : NotificationListenerService() {
         ).contains(context.packageName)
 
 
+    // todo: 데이터 저장되게 하기
+    fun addBlack(type: Type, value: String) {
+        when (type) {
+            Type.ROOM -> blackRoom.add(value)
+            Type.SENDER -> blackSender.add(value)
+        }
+    }
+
+    fun removeBlack(type: Type, value: String) {
+        when (type) {
+            Type.ROOM -> blackRoom.remove(value)
+            Type.SENDER -> blackSender.remove(value)
+        }
+    }
+
     private fun chatHook(
         sender: String,
         message: String,
