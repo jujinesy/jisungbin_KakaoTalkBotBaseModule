@@ -8,7 +8,7 @@
 -----
 
 # What is `KakaoTalkBotBaseModule`?
-`KakaoTalkBotBaseModule` is a library designed for beginner Android developers to easily create KakaoTalk bot applications.
+`KakaoTalkBotBaseModule` is a library designed for beginner Android developers to easily create KakaoTalk Bot applications.
 
 # Download
 ```gradle
@@ -26,7 +26,7 @@ dependencies {
 ```kotlin
 val bot = KakaoBot()
 ```
-## 2. Add bot listener (just follow below [example](https://github.com/sungbin5304/KakaoTalkBotBaseModule/blob/master/app/src/main/java/me/sungbin/kakaotalkbotbasemodule/MainActivity.kt) code)
+## 2. Add bot listener [[example]](https://github.com/sungbin5304/KakaoTalkBotBaseModule/blob/master/app/src/main/java/me/sungbin/kakaotalkbotbasemodule/MainActivity.kt#L19)
 ```kotlin
 bot.setBotListener(object : OnKakaoBotListener {
     override fun onMessageReceive(
@@ -47,7 +47,7 @@ bot.setBotListener(object : OnKakaoBotListener {
         log("bot service create")
     }
     override fun onBotDestroy(bot: KakaoBot) {
-        log("bot service destory")
+        log("bot service destroy")
     }
 })
 ```
@@ -98,6 +98,10 @@ bot.replyRoom("성빈", "안녕 성빈!")
 ```kotlin
 bot.reply(action, "성빈은 사람이다.")
 ```
+
+# Bot `On/Off` control
+You can set bot on/off with `.setPower(boolean)` method.
+
 -----
 
 # All methods
@@ -110,9 +114,13 @@ removeBlack(type: Type, value: String): KakaoBot
 addKakaoTalkPackage(value: String): KakaoBot
 replyRoom(room: String, message: String, roomNotFoundException: (Exception) -> Unit = {}, replyException: (Exception) -> Unit = {})
 reply(action: Notification.Action, message: String, exception: (Exception) -> Unit = {})
+setPower(power: Boolean): KakaoBot
 
 checkNotificationPermission(): Boolean
 ```
+
+# TODO
+1. [ ] Save `Black` data
 
 # Tip
 **All methods is support `method-chaining`.**
