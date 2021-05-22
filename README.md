@@ -22,4 +22,66 @@ dependencies {
 ```
 
 # How to Use?
-1. Create 
+## 1. Create `KakaoBot()` instance.
+```kotlin
+val bot = KakaoBot()
+```
+## 2. Add bot listener (just follow below example code)
+```kotlin
+bot.setBotListener(object : OnKakaoBotListener {
+    override fun onMessageReceive(
+        sender: String,
+        message: String,
+        room: String,
+        isGroupChat: Boolean,
+        action: Notification.Action,
+        profileImage: Bitmap,
+        packageName: String,
+        bot: KakaoBot
+    ) {
+        log(sender, message, room, isGroupChat, action, profileImage, packageName)
+        // if (sender == "성빈") bot.reply(action, "성공 ㅎㅎ 2222222")
+        bot.replyRoom("TEST", "AAAA", { Log.w("AAAA", "없는방!") })
+    }
+    override fun onBotCreate(bot: KakaoBot) {
+        log("bot service create")
+    }
+    override fun onBotDestroy(bot: KakaoBot) {
+        log("bot service destory")
+    }
+})
+```
+### or...you can just add `onMessageReceive` listener with `lambda-function`.
+```kotlin
+bot.setMessageReceiveListener { sender, message, room, isGroupChat, action, profileImage, packageName, bot ->
+  if (sender == "성빈") bot.reply(action, "성공 ㅎㅎ 2222222")
+}
+```
+## 3. **finish!** <br/>
+Now, you can start your bot.
+
+-----
+
+# You can black `room` or `sender`
+### method
+```kotlin
+bot.addBlack(type: Type, value: String)
+```
+
+### Type
+1. `ROOM`
+2. `SENDER`
+
+### Example
+```kotlin
+.addBlack(Type.SENDER, "코콩")
+```
+
+# Permission
+`KakaoTalkBot` is require `Notification Listener Service Permission`. <br/>
+You can give permission with below method.
+```kotlin
+.requestReadNotification()
+```
+
+# all methods
