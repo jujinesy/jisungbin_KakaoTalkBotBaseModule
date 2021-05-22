@@ -1,16 +1,24 @@
 ![banner](https://raw.githubusercontent.com/sungbin5304/KakaoTalkBotBaseModule/master/banner.png)
-<p align="center">
-  <a href="https://github.com/sungbin5304/KakaoTalkBotBaseModule/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-green"/></a>
+<p align="center"> 
+  <a href="https://github.com/sungbin5304/KakaoTalkBotBaseModule/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue"/></a>
   <a href="https://github.com/sungbin5304/KakaoTalkBotBaseModuler"><img alt="Title" src="https://img.shields.io/badge/Module-KakaoTalkBot-ff69b4"/></a>
+  <a href="https://github.com/sungbin5304/KakaoTalkBotBaseModuler"><img alt="MinAPI" src="https://img.shields.io/badge/API-23-yellow"/></a>
 </p><br>
 
 -----
 
 # What is `KakaoTalkBotBaseModule`?
-`KakaoTalkBotBaseModule` is a library designed for beginner Android developers to easily create KakaoTalk Bot applications.
+`KakaoTalkBotBaseModule` is a library designed for beginner Android developers to easily create KakaoTalk Bot applications.<br/>
+**Need [`Wear OS`](https://play.google.com/store/apps/details?id=com.google.android.wearable.app) application.** (can download at playstore)
 
-# Download
-coming soon
+# Download [![](https://jitpack.io/v/jisungbin/kakaotalkbotbasemodule.svg)](https://jitpack.io/#jisungbin/kakaotalkbotbasemodule)
+```gradle
+repositories {
+  maven { url 'https://jitpack.io' }
+}
+
+implementation 'me.sungbin:kakaotalkbotbasemodule:{version}'
+```
 
 # How to Use?
 ## 1. Create `KakaoBot()` instance and init with `Context`.
